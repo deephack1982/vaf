@@ -1,0 +1,12 @@
+<p>
+  <strong>Name:</strong>
+  <%= @squadron.name %>
+</p>
+
+<p>
+  <strong>Aircraft:</strong>
+  <%= @squadron.aircraft %>
+</p>
+
+<%= button_to 'Edit', edit_squadron_path(@squadron), method: :get, :class => "button success" %> |
+<%= button_to 'Back', squadrons_path, method: :get, :class => "button" %>

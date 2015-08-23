@@ -1,0 +1,26 @@
+<h1>Listing Squadrons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Aircraft</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @squadrons.each do |squadron| %>
+      <tr>
+        <td><%= squadron.name %></td>
+        <td><%= squadron.aircraft %></td>
+        <td><%= button_to 'Show', squadron, method: :get, :class => "button tiny" %></td>
+        <td><%= button_to 'Edit', edit_squadron_path(squadron), method: :get, :class => "button tiny success" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to 'New Squadron', new_squadron_path, method: :get, :class => "button success" %>

@@ -1,0 +1,19 @@
+<p>
+  <strong>Name:</strong>
+  <%= @pilot.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @pilot.email %>
+</p>
+
+<p>
+  <strong>Rank:</strong>
+  <%= @pilot.rank %>
+</p>
+
+<ul class="button-group">
+    <li><%= button_to 'Edit', edit_pilot_path(@pilot), method: :get, :class => "button success" %></li>
+    <li><%= button_to 'Back', pilots_path, method: :get, :class => "button" %></li>
+</ul>

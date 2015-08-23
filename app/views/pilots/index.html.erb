@@ -1,0 +1,28 @@
+<h1>Pilot Roster</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Rank</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pilots.each do |pilot| %>
+      <tr>
+        <td><%= pilot.name %></td>
+        <td><%= pilot.email %></td>
+        <td><%= pilot.rank %></td>
+        <td><%= button_to 'Show', pilot, method: :get, :class => "button tiny" %></td>
+        <td><%= button_to 'Edit', edit_pilot_path(pilot), method: :get, :class => "button tiny success" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to 'New Pilot', new_pilot_path, method: :get, :class => "button success" %>
