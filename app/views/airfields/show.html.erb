@@ -1,0 +1,24 @@
+<p>
+  <strong>Name:</strong>
+  <%= @airfield.name %>
+</p>
+
+<p>
+  <strong>Airfield type:</strong>
+  <%= @airfield.airfield_type %>
+</p>
+
+<p>
+  <strong>Atc channel:</strong>
+  <%= @airfield.ATC_channel %>
+</p>
+
+<p>
+  <strong>Atis channel:</strong>
+  <%= @airfield.ATIS_channel %>
+</p>
+
+<ul class="button-group">
+  <li><%= button_to 'Back', airfields_path, method: :get, :class => "button" %></li>
+  <li><%= button_to 'Edit', edit_airfield_path(@airfield), method: :get, :class => "button success" %></li>
+</ul>

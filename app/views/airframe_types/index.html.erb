@@ -1,0 +1,32 @@
+<h1 class="text-center">Listing Airframe Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Callsign</th>
+      <th>Category</th>
+      <th>Cost</th>
+      <th>Maintenance hours</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @airframe_types.each do |airframe_type| %>
+      <tr>
+        <td><%= airframe_type.name %></td>
+        <td><%= airframe_type.callsign %></td>
+        <td><%= airframe_type.category %></td>
+        <td><%= airframe_type.cost %></td>
+        <td><%= airframe_type.maintenance_hours %></td>
+        <td><%= button_to 'Show', airframe_type, method: :get, :class => "button tiny" %></td>
+        <td><%= button_to 'Edit', edit_airframe_type_path(airframe_type), method: :get, :class => "button success tiny" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to 'New Airframe type', new_airframe_type_path, method: :get, :class => "button success" %>

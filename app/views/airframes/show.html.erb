@@ -1,0 +1,34 @@
+<p>
+  <strong>Airframe type:</strong>
+  <%= @airframe.airframe_type.name %>
+</p>
+
+<p>
+  <strong>Tail number:</strong>
+  <%= @airframe.tail_number %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @airframe.location %>
+</p>
+
+<p>
+  <strong>Squadron:</strong>
+  <%= @airframe.squadron.name %>
+</p>
+
+<p>
+  <strong>Hours:</strong>
+  <%= @airframe.hours %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @airframe.condition %>
+</p>
+
+<ul class="button-group">
+  <li><%= button_to 'Back', airframes_path, method: :get, :class => "button" %></li>
+  <li><%= button_to 'Edit', edit_airframe_path(@airframe), method: :get, :class => "button success" %></li>
+</ul>

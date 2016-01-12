@@ -11,7 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150823165853) do
+ActiveRecord::Schema.define(version: 20160112214016) do
+
+  create_table "airfields", force: :cascade do |t|
+    t.string   "name",          limit: 255
+    t.string   "airfield_type", limit: 255
+    t.string   "ATC_channel",   limit: 255
+    t.string   "ATIS_channel",  limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "airframe_types", force: :cascade do |t|
+    t.string   "name",              limit: 255
+    t.string   "callsign",          limit: 255
+    t.string   "category",          limit: 255
+    t.decimal  "cost",                          precision: 10
+    t.decimal  "maintenance_hours",             precision: 10
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+  end
+
+  create_table "airframes", force: :cascade do |t|
+    t.integer  "airframe_type_id", limit: 4
+    t.string   "tail_number",      limit: 255
+    t.string   "location",         limit: 255
+    t.integer  "squadron_id",      limit: 4
+    t.decimal  "hours",                        precision: 10
+    t.string   "condition",        limit: 255
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+  end
+
+  add_index "airframes", ["airframe_type_id"], name: "index_airframes_on_airframe_type_id", using: :btree
+  add_index "airframes", ["squadron_id"], name: "index_airframes_on_squadron_id", using: :btree
 
   create_table "pilots", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -25,11 +58,17 @@ ActiveRecord::Schema.define(version: 20150823165853) do
   add_index "pilots", ["squadron_id"], name: "index_pilots_on_squadron_id", using: :btree
 
   create_table "squadrons", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "aircraft",   limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",        limit: 255
+    t.string   "aircraft",    limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "airfield_id", limit: 4
   end
 
+  add_index "squadrons", ["airfield_id"], name: "index_squadrons_on_airfield_id", using: :btree
+
+  add_foreign_key "airframes", "airframe_types"
+  add_foreign_key "airframes", "squadrons"
   add_foreign_key "pilots", "squadrons"
+  add_foreign_key "squadrons", "airfields"
 end

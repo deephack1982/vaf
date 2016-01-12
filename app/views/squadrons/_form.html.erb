@@ -17,6 +17,9 @@
   <div class="field">
     <%= f.select :aircraft, Squadron::AIRCRAFT, {:include_blank => 'Select...'} %>
   </div>
+  <div class="field">
+    <%= f.collection_select :airfield_id, Airfield.all, :id, :name, {:include_blank => "Select..."} %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

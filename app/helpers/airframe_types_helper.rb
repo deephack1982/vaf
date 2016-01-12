@@ -1,0 +1,2 @@
+module AirframeTypesHelper
+end

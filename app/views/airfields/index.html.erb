@@ -1,0 +1,30 @@
+<h1 class="text-center">Listing Airfields</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Airfield type</th>
+      <th>Atc channel</th>
+      <th>Atis channel</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @airfields.each do |airfield| %>
+      <tr>
+        <td><%= airfield.name %></td>
+        <td><%= airfield.airfield_type %></td>
+        <td><%= airfield.ATC_channel %></td>
+        <td><%= airfield.ATIS_channel %></td>
+        <td><%= button_to 'Show', airfield, method: :get, :class => "button tiny" %></td>
+        <td><%= button_to 'Edit', edit_airfield_path(airfield), method: :get, :class => "button success tiny" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to 'New Airfield', new_airfield_path, method: :get, :class => "button success" %>

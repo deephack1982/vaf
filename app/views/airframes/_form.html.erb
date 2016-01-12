@@ -1,0 +1,35 @@
+<%= form_for(@airframe) do |f| %>
+  <% if @airframe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@airframe.errors.count, "error") %> prohibited this airframe from being saved:</h2>
+
+      <ul>
+      <% @airframe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.collection_select :airframe_type_id, AirframeType.all, :id, :name, {:include_blank => "Select..."} %>
+  </div>
+  <div class="field">
+    <%= f.text_field :tail_number %>
+  </div>
+  <div class="field">
+    <%= f.select :location, Airframe::LOCATION %>
+  </div>
+  <div class="field">
+    <%= f.collection_select :squadron_id, Squadron.all, :id, :name, {:include_blank => "Select..."} %>
+  </div>
+  <div class="field">
+    <%= f.number_field :hours, :value => '0' %>
+  </div>
+  <div class="field">
+    <%= f.select :condition, Airframe::CONDITION %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

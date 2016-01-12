@@ -1,0 +1,34 @@
+Pilot
+Name
+Email
+Password
+Rank
+Role
+Hours
+--
+
+Squadron
+Name
+Aircraft
+Patch
+--
+
+Badge
+Name
+Patch
+
+Qualification
+Name
+Patch
+
+Log Entry
+Type
+Date
+Hours
+AA Kills
+AG Kills
+
+select :order_type, Order::ORDER_TYPE
+
+
+

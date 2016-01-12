@@ -13,7 +13,12 @@
   <%= @pilot.rank %>
 </p>
 
+<p>
+  <strong>Squadron:</strong>
+  <%= @pilot.squadron.name rescue "None" %>
+</p>
+
 <ul class="button-group">
-    <li><%= button_to 'Edit', edit_pilot_path(@pilot), method: :get, :class => "button success" %></li>
-    <li><%= button_to 'Back', pilots_path, method: :get, :class => "button" %></li>
+  <li><%= button_to 'Back', pilots_path, method: :get, :class => "button" %></li>
+  <li><%= button_to 'Edit', edit_pilot_path(@pilot), method: :get, :class => "button success" %></li>
 </ul>
