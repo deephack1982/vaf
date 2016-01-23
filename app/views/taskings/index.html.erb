@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Taskings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Callsign</th>
+      <th>Mission</th>
+      <th>Airframe type</th>
+      <th>Number</th>
+      <th>Tasking type</th>
+      <th>Notes</th>
+      <th>Channel</th>
+      <th>Primary base</th>
+      <th>Alternate base</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @taskings.each do |tasking| %>
+      <tr>
+        <td><%= tasking.callsign %></td>
+        <td><%= tasking.mission %></td>
+        <td><%= tasking.airframe_type %></td>
+        <td><%= tasking.number %></td>
+        <td><%= tasking.tasking_type %></td>
+        <td><%= tasking.notes %></td>
+        <td><%= tasking.channel %></td>
+        <td><%= tasking.primary_base %></td>
+        <td><%= tasking.alternate_base %></td>
+        <td><%= link_to 'Show', tasking %></td>
+        <td><%= link_to 'Edit', edit_tasking_path(tasking) %></td>
+        <td><%= link_to 'Destroy', tasking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tasking', new_tasking_path %>

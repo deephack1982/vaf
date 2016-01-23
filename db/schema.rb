@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112214016) do
+ActiveRecord::Schema.define(version: 20160123190345) do
 
   create_table "airfields", force: :cascade do |t|
     t.string   "name",          limit: 255
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 20160112214016) do
   add_index "airframes", ["airframe_type_id"], name: "index_airframes_on_airframe_type_id", using: :btree
   add_index "airframes", ["squadron_id"], name: "index_airframes_on_squadron_id", using: :btree
 
+  create_table "missions", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.date     "date"
+    t.time     "start_time"
+    t.text     "body",       limit: 65535
+    t.integer  "channel",    limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "pilots", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.string   "email",       limit: 255
@@ -67,8 +77,27 @@ ActiveRecord::Schema.define(version: 20160112214016) do
 
   add_index "squadrons", ["airfield_id"], name: "index_squadrons_on_airfield_id", using: :btree
 
+  create_table "taskings", force: :cascade do |t|
+    t.string   "callsign",          limit: 255
+    t.integer  "mission_id",        limit: 4
+    t.integer  "airframe_type_id",  limit: 4
+    t.integer  "number",            limit: 4
+    t.string   "tasking_type",      limit: 255
+    t.text     "notes",             limit: 65535
+    t.integer  "channel",           limit: 4
+    t.integer  "primary_base_id",   limit: 4
+    t.integer  "alternate_base_id", limit: 4
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "taskings", ["airframe_type_id"], name: "index_taskings_on_airframe_type_id", using: :btree
+  add_index "taskings", ["mission_id"], name: "index_taskings_on_mission_id", using: :btree
+
   add_foreign_key "airframes", "airframe_types"
   add_foreign_key "airframes", "squadrons"
   add_foreign_key "pilots", "squadrons"
   add_foreign_key "squadrons", "airfields"
+  add_foreign_key "taskings", "airframe_types"
+  add_foreign_key "taskings", "missions"
 end

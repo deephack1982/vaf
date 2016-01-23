@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  callsign: MyString
+  mission_id: 
+  airframe_type_id: 
+  number: 1
+  tasking_type: MyString
+  notes: MyText
+  channel: 1
+  primary_base_id: 
+  alternate_base_id: 
+
+two:
+  callsign: MyString
+  mission_id: 
+  airframe_type_id: 
+  number: 1
+  tasking_type: MyString
+  notes: MyText
+  channel: 1
+  primary_base_id: 
+  alternate_base_id: 

@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @mission.title %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @mission.date %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @mission.start_time %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @mission.body %>
+</p>
+
+<p>
+  <strong>Channel:</strong>
+  <%= @mission.channel %>
+</p>
+
+<h1>Taskings</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Callsign</th>
+    <th>Type</th>
+    <th>Number</th>
+    <th>Airframe</th>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @taskings.each do |t| %>
+    <tr>
+      <td><%= t.callsign %></td>
+      <td><%= t.tasking_type %></td>
+      <td><%= t.number %></td>
+      <td><%= t.airframe_type.name %></td>
+      <td><%= button_to 'Show', t, method: :get, :class => "button tiny" %></td>
+      <td><%= button_to 'Edit', edit_tasking_path(t), method: :get, :class => "button tiny success" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= button_to 'New Tasking', new_tasking_path, method: :get, :class => "button success" %>
+
+<ul class="button-group">
+  <li><%= button_to 'Back', missions_path, method: :get, :class => "button" %></li>
+  <li><%= button_to 'Edit', edit_mission_path(@mission), method: :get, :class => "button success" %></li>
+</ul>

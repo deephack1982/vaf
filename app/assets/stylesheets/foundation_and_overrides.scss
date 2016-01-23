@@ -1441,3 +1441,9 @@ $include-html-global-classes: $include-html-classes;
 // $include-accessibility-classes: true;
 
 @import 'foundation';
+
+body {
+  background-image: image-url("vaf_roundel.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}

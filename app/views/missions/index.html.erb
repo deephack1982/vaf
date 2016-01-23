@@ -1,0 +1,32 @@
+<h1>Listing Missions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Start time</th>
+      <th>Body</th>
+      <th>Channel</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @missions.each do |mission| %>
+      <tr>
+        <td><%= mission.title %></td>
+        <td><%= mission.date %></td>
+        <td><%= mission.start_time %></td>
+        <td><%= mission.body %></td>
+        <td><%= mission.channel %></td>
+        <td><%= button_to 'Show', mission, method: :get, :class => "button tiny" %></td>
+        <td><%= button_to 'Edit', edit_mission_path(mission), method: :get, :class => "button success tiny" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to 'New Mission', new_mission_path, method: :get, :class => "button success" %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :taskings
+  resources :missions
   resources :airframes
   resources :airframe_types
   resources :airfields

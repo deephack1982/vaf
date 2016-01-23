@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Callsign:</strong>
+  <%= @tasking.callsign %>
+</p>
+
+<p>
+  <strong>Mission:</strong>
+  <%= @tasking.mission %>
+</p>
+
+<p>
+  <strong>Airframe type:</strong>
+  <%= @tasking.airframe_type %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @tasking.number %>
+</p>
+
+<p>
+  <strong>Tasking type:</strong>
+  <%= @tasking.tasking_type %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @tasking.notes %>
+</p>
+
+<p>
+  <strong>Channel:</strong>
+  <%= @tasking.channel %>
+</p>
+
+<p>
+  <strong>Primary base:</strong>
+  <%= @tasking.primary_base %>
+</p>
+
+<p>
+  <strong>Alternate base:</strong>
+  <%= @tasking.alternate_base %>
+</p>
+
+<%= link_to 'Edit', edit_tasking_path(@tasking) %> |
+<%= link_to 'Back', taskings_path %>
