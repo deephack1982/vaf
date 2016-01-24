@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pilot_id: 
+  airframe_id: 
+  tasking_id: 
+  hours: 1
+  takeoffs: 1
+  landings: 1
+  outcome: MyString
+  aa_kills: 1
+  ag_kills: 1
+  notes: MyText
+  status: MyString
+
+two:
+  pilot_id: 
+  airframe_id: 
+  tasking_id: 
+  hours: 1
+  takeoffs: 1
+  landings: 1
+  outcome: MyString
+  aa_kills: 1
+  ag_kills: 1
+  notes: MyText
+  status: MyString

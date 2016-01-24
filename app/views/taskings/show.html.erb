@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<h1><%= "#{@tasking.mission.title} - #{@tasking.callsign}" %></h1>
 
 <p>
   <strong>Callsign:</strong>
@@ -7,12 +7,12 @@
 
 <p>
   <strong>Mission:</strong>
-  <%= @tasking.mission %>
+  <%= @tasking.mission.title %>
 </p>
 
 <p>
   <strong>Airframe type:</strong>
-  <%= @tasking.airframe_type %>
+  <%= @tasking.airframe_type.fullname %>
 </p>
 
 <p>
@@ -37,13 +37,15 @@
 
 <p>
   <strong>Primary base:</strong>
-  <%= @tasking.primary_base %>
+  <%= Airfield.find(@tasking.primary_base_id).name %>
 </p>
 
 <p>
   <strong>Alternate base:</strong>
-  <%= @tasking.alternate_base %>
+  <%= Airfield.find(@tasking.alternate_base_id).name %>
 </p>
 
-<%= link_to 'Edit', edit_tasking_path(@tasking) %> |
-<%= link_to 'Back', taskings_path %>
+<ul class="button-group">
+  <li><%= button_to 'Back', mission_path(@tasking.mission), method: :get, :class => "button" %></li>
+  <li><%= button_to 'Edit', edit_tasking_path(@tasking), method: :get, :class => "button success" %></li>
+</ul>

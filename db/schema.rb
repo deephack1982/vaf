@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123190345) do
+ActiveRecord::Schema.define(version: 20160124123111) do
+
+  create_table "action_reports", force: :cascade do |t|
+    t.integer  "pilot_id",    limit: 4
+    t.integer  "airframe_id", limit: 4
+    t.integer  "tasking_id",  limit: 4
+    t.integer  "hours",       limit: 4
+    t.integer  "takeoffs",    limit: 4
+    t.integer  "landings",    limit: 4
+    t.string   "outcome",     limit: 255
+    t.integer  "aa_kills",    limit: 4
+    t.integer  "ag_kills",    limit: 4
+    t.text     "notes",       limit: 65535
+    t.string   "status",      limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "action_reports", ["airframe_id"], name: "index_action_reports_on_airframe_id", using: :btree
+  add_index "action_reports", ["pilot_id"], name: "index_action_reports_on_pilot_id", using: :btree
+  add_index "action_reports", ["tasking_id"], name: "index_action_reports_on_tasking_id", using: :btree
 
   create_table "airfields", force: :cascade do |t|
     t.string   "name",          limit: 255
@@ -94,6 +114,9 @@ ActiveRecord::Schema.define(version: 20160123190345) do
   add_index "taskings", ["airframe_type_id"], name: "index_taskings_on_airframe_type_id", using: :btree
   add_index "taskings", ["mission_id"], name: "index_taskings_on_mission_id", using: :btree
 
+  add_foreign_key "action_reports", "airframes"
+  add_foreign_key "action_reports", "pilots"
+  add_foreign_key "action_reports", "taskings"
   add_foreign_key "airframes", "airframe_types"
   add_foreign_key "airframes", "squadrons"
   add_foreign_key "pilots", "squadrons"

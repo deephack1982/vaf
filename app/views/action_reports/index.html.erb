@@ -1,0 +1,44 @@
+<h1>Listing Action Reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pilot</th>
+      <th>Airframe</th>
+      <th>Tasking</th>
+      <th>Hours</th>
+      <th>Takeoffs</th>
+      <th>Landings</th>
+      <th>Outcome</th>
+      <th>Aa kills</th>
+      <th>Ag kills</th>
+      <th>Notes</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @action_reports.each do |action_report| %>
+      <tr>
+        <td><%= action_report.pilot.name %></td>
+        <td><%= action_report.airframe.fullname %></td>
+        <td><%= action_report.tasking.fullname %></td>
+        <td><%= action_report.hours %></td>
+        <td><%= action_report.takeoffs %></td>
+        <td><%= action_report.landings %></td>
+        <td><%= action_report.outcome %></td>
+        <td><%= action_report.aa_kills %></td>
+        <td><%= action_report.ag_kills %></td>
+        <td><%= action_report.notes %></td>
+        <td><%= action_report.status %></td>
+        <td><%= button_to 'Show', action_report, method: :get, :class => "button tiny" %></td>
+        <td><%= button_to 'Edit', edit_action_report_path(action_report), method: :get, :class => "button tiny success" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to 'New Action report', new_action_report_path, method: :get, :class => "button success" %>

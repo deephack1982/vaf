@@ -1,5 +1,6 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @mission.title %></h1>
 
+<div class="panel">
 <p>
   <strong>Title:</strong>
   <%= @mission.title %>
@@ -12,7 +13,7 @@
 
 <p>
   <strong>Start time:</strong>
-  <%= @mission.start_time %>
+  <%= "#{@mission.start_time.strftime("%H")}00 ZULU" %>
 </p>
 
 <p>
@@ -24,6 +25,7 @@
   <strong>Channel:</strong>
   <%= @mission.channel %>
 </p>
+</div>
 
 <h1>Taskings</h1>
 <table>
@@ -50,7 +52,31 @@
     <% end %>
   </tbody>
 </table>
-<%= button_to 'New Tasking', new_tasking_path, method: :get, :class => "button success" %>
+<%= button_to 'New Tasking', new_tasking_path, method: :get, :class => "button success", :params => {mission_id: @mission.id} %>
+
+<h1>Assigned Pilots</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Pilot</th>
+    <th>Airframe</th>
+    <th>Tasking</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @action_reports.each do |a| %>
+    <tr>
+      <td><%= a.pilot.name %></td>
+      <td><%= a.airframe.fullname %></td>
+      <td><%= a.tasking.callsign %></td>
+      <td><%= a.status %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= button_to 'New Assignment', new_action_report_path, method: :get, :class => "button success" %>
 
 <ul class="button-group">
   <li><%= button_to 'Back', missions_path, method: :get, :class => "button" %></li>

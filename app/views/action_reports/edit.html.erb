@@ -1,0 +1,8 @@
+<h1>Editing Action Report</h1>
+
+<%= render 'form' %>
+
+<ul class="button-group">
+  <li><%= button_to 'Back', action_reports_path, method: :get, :class => "button tiny" %></li>
+  <li><%= button_to 'Show', @action_report, method: :get, :class => "button tiny success" %></li>
+</ul>

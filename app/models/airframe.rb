@@ -4,4 +4,9 @@ class Airframe < ActiveRecord::Base
 
   belongs_to :airframe_type
   belongs_to :squadron
+  has_many :action_reports
+
+  def fullname
+    "#{tail_number} - #{condition} - #{airframe_type.name}"
+  end
 end

@@ -15,6 +15,7 @@ class TaskingsController < ApplicationController
   # GET /taskings/new
   def new
     @tasking = Tasking.new
+    @mission = params[:mission_id]
   end
 
   # GET /taskings/1/edit

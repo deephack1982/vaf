@@ -11,6 +11,7 @@ class MissionsController < ApplicationController
   # GET /missions/1.json
   def show
     @taskings = Tasking.where(:mission => @mission)
+    @action_reports = @mission.action_reports
   end
 
   # GET /missions/new

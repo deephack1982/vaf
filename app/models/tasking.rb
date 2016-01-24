@@ -5,4 +5,9 @@ class Tasking < ActiveRecord::Base
   belongs_to :airframe_type
   belongs_to :base, :foreign_key => 'primary_base_id'
   belongs_to :base, :foreign_key => 'alternate_base'
+  has_many :action_reports
+
+  def fullname
+    "#{callsign} - #{mission.title}"
+  end
 end

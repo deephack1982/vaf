@@ -1,0 +1,27 @@
+<%= form_for(@action_report) do |f| %>
+  <% if @action_report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@action_report.errors.count, "error") %> prohibited this action_report from being saved:</h2>
+
+      <ul>
+      <% @action_report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.collection_select :pilot_id, Pilot.all, :id, :fullname, {:include_blank => "Select..."} %>
+  </div>
+  <div class="field">
+      <%= f.collection_select :tasking_id, Tasking.all, :id, :fullname, {:include_blank => "Select..."} %>
+  </div>
+  <div class="field">
+    <%= f.collection_select :airframe_id, Airframe.all, :id, :fullname, {:include_blank => "Select..."} %>
+  </div>
+  <%= f.hidden_field :status, :value => "Assigned" %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

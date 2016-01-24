@@ -14,9 +14,13 @@
   <div class="field">
     <%= f.text_field :callsign %>
   </div>
+  <% if params[:mission_id] %>
+    <%= f.hidden_field :mission_id, :value => @mission %>
+  <% else %>
   <div class="field">
-    <%= f.text_field :mission_id %>
+    <%= f.collection_select :mission_id, Mission.all, :id, :title, {:include_blank => "Select..."} %>
   </div>
+  <% end %>
   <div class="field">
     <%= f.collection_select :airframe_type_id, AirframeType.all, :id, :name, {:include_blank => "Select..." } %>
   </div>
