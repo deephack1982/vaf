@@ -14,9 +14,13 @@
   <div class="field">
     <%= f.collection_select :pilot_id, Pilot.all, :id, :fullname, {:include_blank => "Select..."} %>
   </div>
+  <% if params[:mission_id] %>
+    <%= f.collection_select :tasking_id, Tasking.where(:mission_id => @mission), :id, :fullname, {:include_blank => "Select..."} %>
+  <% else %>
   <div class="field">
       <%= f.collection_select :tasking_id, Tasking.all, :id, :fullname, {:include_blank => "Select..."} %>
   </div>
+  <% end %>
   <div class="field">
     <%= f.collection_select :airframe_id, Airframe.all, :id, :fullname, {:include_blank => "Select..."} %>
   </div>

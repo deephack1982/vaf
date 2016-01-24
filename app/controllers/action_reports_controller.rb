@@ -15,6 +15,7 @@ class ActionReportsController < ApplicationController
   # GET /action_reports/new
   def new
     @action_report = ActionReport.new
+    @mission = params[:mission_id]
   end
 
   # GET /action_reports/1/edit
