@@ -30,6 +30,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'foundation-rails'
 gem 'foundation_rails_helper'
 
+# Add paperclip for attachments
+gem 'paperclip'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

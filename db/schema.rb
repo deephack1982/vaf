@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160124123111) do
+ActiveRecord::Schema.define(version: 20160227001638) do
 
   create_table "action_reports", force: :cascade do |t|
     t.integer  "pilot_id",    limit: 4
     t.integer  "airframe_id", limit: 4
     t.integer  "tasking_id",  limit: 4
-    t.integer  "hours",       limit: 4
+    t.float    "hours",       limit: 24
     t.integer  "takeoffs",    limit: 4
     t.integer  "landings",    limit: 4
     t.string   "outcome",     limit: 255
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160124123111) do
     t.string   "status",      limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "position",    limit: 4
   end
 
   add_index "action_reports", ["airframe_id"], name: "index_action_reports_on_airframe_id", using: :btree
@@ -43,13 +44,17 @@ ActiveRecord::Schema.define(version: 20160124123111) do
   end
 
   create_table "airframe_types", force: :cascade do |t|
-    t.string   "name",              limit: 255
-    t.string   "callsign",          limit: 255
-    t.string   "category",          limit: 255
-    t.decimal  "cost",                          precision: 10
-    t.decimal  "maintenance_hours",             precision: 10
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.string   "name",               limit: 255
+    t.string   "callsign",           limit: 255
+    t.string   "category",           limit: 255
+    t.decimal  "cost",                           precision: 10
+    t.decimal  "maintenance_hours",              precision: 10
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
   end
 
   create_table "airframes", force: :cascade do |t|
@@ -57,10 +62,10 @@ ActiveRecord::Schema.define(version: 20160124123111) do
     t.string   "tail_number",      limit: 255
     t.string   "location",         limit: 255
     t.integer  "squadron_id",      limit: 4
-    t.decimal  "hours",                        precision: 10
+    t.float    "hours",            limit: 24
     t.string   "condition",        limit: 255
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "airframes", ["airframe_type_id"], name: "index_airframes_on_airframe_type_id", using: :btree

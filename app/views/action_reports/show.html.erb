@@ -10,7 +10,7 @@
 
 <p>
   <strong>Tasking:</strong>
-  <%= @action_report.tasking.fullname %>
+  <%= "#{@action_report.tasking.callsign}#{@action_report.position}" %>
 </p>
 
 <p>
@@ -64,7 +64,7 @@
   <%= form_for @action_report do |f| %>
       <%= f.hidden_field :status, :value => 'Closed' %>
       <div class="field">
-        <%= f.number_field :hours %>
+        <%= f.number_field :hours, :step => 0.1 %>
       </div>
       <div class="field">
         <%= f.number_field :takeoffs %>

@@ -1,4 +1,4 @@
-<%= form_for(@airframe_type) do |f| %>
+<%= form_for(@airframe_type, html: { multipart: true }) do |f| %>
   <% if @airframe_type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@airframe_type.errors.count, "error") %> prohibited this airframe_type from being saved:</h2>
@@ -25,6 +25,9 @@
   </div>
   <div class="field">
     <%= f.number_field :maintenance_hours %>
+  </div>
+  <div class="field">
+    <%= f.file_field :image %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -69,6 +69,6 @@ class AirframeTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def airframe_type_params
-      params.require(:airframe_type).permit(:name, :callsign, :category, :cost, :maintenance_hours)
+      params.require(:airframe_type).permit(:name, :callsign, :category, :cost, :maintenance_hours, :image)
     end
 end

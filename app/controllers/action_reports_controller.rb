@@ -16,6 +16,7 @@ class ActionReportsController < ApplicationController
   def new
     @action_report = ActionReport.new
     @mission = params[:mission_id]
+
   end
 
   # GET /action_reports/1/edit
@@ -70,6 +71,6 @@ class ActionReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def action_report_params
-      params.require(:action_report).permit(:pilot_id, :airframe_id, :tasking_id, :hours, :takeoffs, :landings, :outcome, :aa_kills, :ag_kills, :notes, :status)
+      params.require(:action_report).permit(:pilot_id, :airframe_id, :tasking_id, :hours, :takeoffs, :landings, :outcome, :aa_kills, :ag_kills, :notes, :status, :position)
     end
 end

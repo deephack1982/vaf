@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <p>
   <strong>Name:</strong>
   <%= @pilot.name %>
@@ -18,6 +17,52 @@
   <strong>Squadron:</strong>
   <%= @pilot.squadron.name rescue "None" %>
 </p>
+
+<h1>Pilots Stats</h1>
+<div class="panel">
+  <div class="row">
+    <div class="small-6 columns">
+      <p>
+        <strong>Total Hours</strong>
+      </p>
+      <p>
+        <strong>Total Missions</strong>
+      </p>
+      <p>
+        <strong>Total Takeoffs</strong>
+      </p>
+      <p>
+        <strong>Total Landings</strong>
+      </p>
+      <p>
+        <strong>AA Kills</strong>
+      </p>
+      <p>
+        <strong>AG Kills</strong>
+      </p>
+    </div>
+    <div class="small-6 columns">
+      <p>
+        <%= @pilot.hours %>
+      </p>
+      <p>
+        <%= @pilot.missions %>
+      </p>
+      <p>
+        <%= @pilot.takeoffs %>
+      </p>
+      <p>
+        <%= @pilot.landings %>
+      </p>
+      <p>
+        <%= @pilot.aa_kills %>
+      </p>
+      <p>
+        <%= @pilot.ag_kills %>
+      </p>
+    </div>
+  </div>
+</div>
 
 <ul class="button-group">
   <li><%= button_to 'Back', pilots_path, method: :get, :class => "button" %></li>
