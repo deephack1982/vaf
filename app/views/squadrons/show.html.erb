@@ -1,7 +1,4 @@
-<p>
-  <strong>Name:</strong>
-  <%= @squadron.name %>
-</p>
+<h1 class="text-center"><%= @squadron.name %></h1>
 
 <p>
   <strong>Aircraft:</strong>
@@ -12,6 +9,52 @@
   <strong>Airbase:</strong>
   <%= @squadron.airfield.name %>
 </p>
+
+<h1>Pilots in this squadron</h1>
+<div class="panel">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Rank</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+  <% @squadron.pilots.each do |p| %>
+    <tr>
+        <td><%= p.name %></td>
+        <td><%= p.rank %></td>
+        <td>Not implemented</td>
+    </tr>
+  <% end %>
+    </tbody>
+  </table>
+</div>
+
+<h1>Airframes in this squadron</h1>
+<div class="panel">
+  <table>
+    <thead>
+    <tr>
+      <th>Tail Number</th>
+      <th>Type</th>
+      <th>Condition</th>
+      <th>Hours</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @squadron.airframes.each do |a| %>
+    <tr>
+      <td><%= a.tail_number %></td>
+      <td><%= a.airframe_type.fullname %></td>
+      <td><%= a.condition %></td>
+      <td><%= a.hours %></td>
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
 <ul class="button-group">
   <li><%= button_to 'Back', squadrons_path, method: :get, :class => "button" %></li>
   <li><%= button_to 'Edit', edit_squadron_path(@squadron), method: :get, :class => "button success" %></li>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227001638) do
+ActiveRecord::Schema.define(version: 20160305195549) do
 
   create_table "action_reports", force: :cascade do |t|
     t.integer  "pilot_id",    limit: 4
@@ -91,6 +91,26 @@ ActiveRecord::Schema.define(version: 20160227001638) do
   end
 
   add_index "pilots", ["squadron_id"], name: "index_pilots_on_squadron_id", using: :btree
+
+  create_table "pilots_qualifications", id: false, force: :cascade do |t|
+    t.integer "pilot_id",         limit: 4
+    t.integer "qualification_id", limit: 4
+  end
+
+  add_index "pilots_qualifications", ["pilot_id"], name: "index_pilots_qualifications_on_pilot_id", using: :btree
+  add_index "pilots_qualifications", ["qualification_id"], name: "index_pilots_qualifications_on_qualification_id", using: :btree
+
+  create_table "qualifications", force: :cascade do |t|
+    t.string   "tag",                limit: 255
+    t.string   "name",               limit: 255
+    t.text     "description",        limit: 65535
+    t.string   "patch_file_name",    limit: 255
+    t.string   "patch_content_type", limit: 255
+    t.integer  "patch_file_size",    limit: 4
+    t.datetime "patch_updated_at"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
 
   create_table "squadrons", force: :cascade do |t|
     t.string   "name",        limit: 255

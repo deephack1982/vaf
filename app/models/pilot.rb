@@ -3,6 +3,7 @@ class Pilot < ActiveRecord::Base
 
   belongs_to :squadron
   has_many :action_reports
+  has_and_belongs_to_many :qualifications
 
   def fullname
     "#{name} - #{email}"

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :qualifications
   resources :action_reports
   resources :taskings
   resources :missions

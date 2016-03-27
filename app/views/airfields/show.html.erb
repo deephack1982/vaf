@@ -1,7 +1,4 @@
-<p>
-  <strong>Name:</strong>
-  <%= @airfield.name %>
-</p>
+<h1 class="text-center"><%= "#{@airfield.name} Airfield" %></h1>
 
 <p>
   <strong>Airfield type:</strong>
@@ -17,6 +14,15 @@
   <strong>Atis channel:</strong>
   <%= @airfield.ATIS_channel %>
 </p>
+
+<h1>Squadrons at this Airfield</h1>
+
+<div class="panel">
+  <% @airfield.squadrons.each do |s| %>
+    <p><%= s.name %></p>
+    <p><%= "Current strength #{s.airframes.airworthy.count}x #{s.aircraft}"  %></p>
+  <% end %>
+</div>
 
 <ul class="button-group">
   <li><%= button_to 'Back', airfields_path, method: :get, :class => "button" %></li>
