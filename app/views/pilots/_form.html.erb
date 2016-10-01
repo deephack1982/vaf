@@ -17,6 +17,15 @@
   <div class="field">
     <%= f.text_field :email %>
   </div>
+    <div class="field">
+      <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="field">
+    <%= f.check_box :admin %>
+  </div>
   <div class="field">
     <%= f.select :rank, Pilot::PILOT_RANK %>
   </div>

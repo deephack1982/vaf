@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
+  get 'session/new'
+
+  get 'session/create'
+
   get 'static/index'
+
+  get 'static/contact'
+
+  get 'static/inventory'
+
+  get 'static/join'
 
   resources :qualifications
   resources :action_reports
@@ -10,6 +20,7 @@ Rails.application.routes.draw do
   resources :airfields
   resources :squadrons
   resources :pilots
+  resources :sessions
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

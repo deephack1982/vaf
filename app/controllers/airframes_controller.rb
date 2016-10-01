@@ -1,5 +1,6 @@
 class AirframesController < ApplicationController
   before_action :set_airframe, only: [:show, :edit, :update, :destroy]
+  before_filter :authorise
 
   # GET /airframes
   # GET /airframes.json

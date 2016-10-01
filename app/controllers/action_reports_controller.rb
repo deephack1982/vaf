@@ -1,5 +1,6 @@
 class ActionReportsController < ApplicationController
   before_action :set_action_report, only: [:show, :edit, :update, :destroy]
+  before_filter :authorise
 
   # GET /action_reports
   # GET /action_reports.json

@@ -1,5 +1,6 @@
 class PilotsController < ApplicationController
   before_action :set_pilot, only: [:show, :edit, :update, :destroy]
+  before_filter :authorise
 
   # GET /pilots
   # GET /pilots.json
@@ -69,6 +70,6 @@ class PilotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pilot_params
-      params.require(:pilot).permit(:name, :email, :rank, :squadron_id)
+      params.require(:pilot).permit(:name, :email, :rank, :squadron_id, :password, :password_confirmation, :admin)
     end
 end
