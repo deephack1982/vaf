@@ -70,6 +70,6 @@ class SquadronsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def squadron_params
-      params.require(:squadron).permit(:name, :aircraft, :airfield_id)
+      params.require(:squadron).permit(:name, :aircraft, :airfield_id, :badge)
     end
 end

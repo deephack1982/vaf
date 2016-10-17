@@ -1,5 +1,6 @@
 class TaskingsController < ApplicationController
   before_action :set_tasking, only: [:show, :edit, :update, :destroy]
+  before_filter :authorise
 
   # GET /taskings
   # GET /taskings.json

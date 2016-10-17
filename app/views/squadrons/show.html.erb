@@ -1,15 +1,27 @@
 <h1 class="text-center"><%= @squadron.name %></h1>
-
-<p>
-  <strong>Aircraft:</strong>
-  <%= @squadron.aircraft %>
-</p>
-
-<p>
-  <strong>Airbase:</strong>
-  <%= @squadron.airfield.name %>
-</p>
-
+<table>
+  <tbody>
+  <tr>
+    <td>
+      <p>
+        <strong>Aircraft:</strong>
+        <%= @squadron.aircraft %>
+      </p>
+    </td>
+    <td>
+      <%= image_tag @squadron.badge.url(:small) %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        <strong>Airbase:</strong>
+        <%= @squadron.airfield.name %>
+      </p>
+    </td>
+  </tr>
+  </tbody>
+</table>
 <h1>Pilots in this squadron</h1>
 <div class="panel">
   <table>

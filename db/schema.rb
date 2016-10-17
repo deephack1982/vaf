@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161001165406) do
+ActiveRecord::Schema.define(version: 20161001190732) do
 
   create_table "action_reports", force: :cascade do |t|
     t.integer  "pilot_id",    limit: 4
@@ -115,11 +115,15 @@ ActiveRecord::Schema.define(version: 20161001165406) do
   end
 
   create_table "squadrons", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "aircraft",    limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "airfield_id", limit: 4
+    t.string   "name",               limit: 255
+    t.string   "aircraft",           limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "airfield_id",        limit: 4
+    t.string   "badge_file_name",    limit: 255
+    t.string   "badge_content_type", limit: 255
+    t.integer  "badge_file_size",    limit: 4
+    t.datetime "badge_updated_at"
   end
 
   add_index "squadrons", ["airfield_id"], name: "index_squadrons_on_airfield_id", using: :btree

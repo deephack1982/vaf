@@ -1,6 +1,14 @@
 * Add Application form
+* Add frequencies to airfields
+* Add qualifications to pilots
 
 Commit 01/10/2016
 
 Added authentication for admin section
 Added placeholder static pages
+Added squadron patches
+
+Commit 17/10/2016
+
+Added squadron badges to show views
+
