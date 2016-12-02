@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161001190732) do
+ActiveRecord::Schema.define(version: 20161023155522) do
 
   create_table "action_reports", force: :cascade do |t|
     t.integer  "pilot_id",    limit: 4
@@ -71,6 +71,18 @@ ActiveRecord::Schema.define(version: 20161001190732) do
   add_index "airframes", ["airframe_type_id"], name: "index_airframes_on_airframe_type_id", using: :btree
   add_index "airframes", ["squadron_id"], name: "index_airframes_on_squadron_id", using: :btree
 
+  create_table "joining_forms", force: :cascade do |t|
+    t.integer  "age",                 limit: 4
+    t.boolean  "english_proficiency"
+    t.boolean  "available"
+    t.string   "software",            limit: 255
+    t.integer  "years_experience",    limit: 4
+    t.string   "interests",           limit: 255
+    t.text     "notes",               limit: 65535
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
   create_table "missions", force: :cascade do |t|
     t.string   "title",      limit: 255
     t.date     "date"
@@ -90,6 +102,8 @@ ActiveRecord::Schema.define(version: 20161001190732) do
     t.integer  "squadron_id",     limit: 4
     t.string   "password_digest", limit: 255
     t.boolean  "admin"
+    t.string   "callsign",        limit: 255
+    t.string   "country",         limit: 255
   end
 
   add_index "pilots", ["squadron_id"], name: "index_pilots_on_squadron_id", using: :btree

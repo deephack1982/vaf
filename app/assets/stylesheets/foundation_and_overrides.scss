@@ -1447,3 +1447,9 @@ $include-html-global-classes: $include-html-classes;
 //  background-position: center;
 //  background-repeat: no-repeat;
 //}
+
+.warning-panel {
+  @include panel(
+  $bg:orange
+  );
+}

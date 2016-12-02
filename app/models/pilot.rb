@@ -5,6 +5,7 @@ class Pilot < ActiveRecord::Base
   validates_confirmation_of :password
   belongs_to :squadron
   has_many :action_reports
+  has_many :joining_forms
   has_and_belongs_to_many :qualifications
 
   def fullname

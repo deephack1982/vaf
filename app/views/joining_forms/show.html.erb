@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @joining_form.age %>
+</p>
+
+<p>
+  <strong>English proficiency:</strong>
+  <%= @joining_form.english_proficiency %>
+</p>
+
+<p>
+  <strong>Available:</strong>
+  <%= @joining_form.available %>
+</p>
+
+<p>
+  <strong>Software:</strong>
+  <%= @joining_form.software %>
+</p>
+
+<p>
+  <strong>Years experience:</strong>
+  <%= @joining_form.years_experience %>
+</p>
+
+<p>
+  <strong>Interests:</strong>
+  <%= @joining_form.interests %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @joining_form.notes %>
+</p>
+
+<%= link_to 'Edit', edit_joining_form_path(@joining_form) %> |
+<%= link_to 'Back', joining_forms_path %>

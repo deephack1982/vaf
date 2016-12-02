@@ -33,6 +33,10 @@ gem 'foundation_rails_helper'
 # Add paperclip for attachments
 gem 'paperclip'
 
+# Add country_select and svg_flags_rails for countries
+gem 'country_select'
+gem 'svg-flags-rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

@@ -11,13 +11,25 @@
     </div>
   <% end %>
 
+
+    <div class="large-6 columns">
+      <div class="field">
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.text_field :email %>
+      </div>
+    </div>
+    <div class="large-6 columns">
+      <div class="field">
+        <%= f.text_field :callsign %>
+      </div>
+      <div class="field">
+        <%= f.label :country %>
+        <%= f.country_select :country %>
+      </div>
+    </div>
   <div class="field">
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.text_field :email %>
-  </div>
-    <div class="field">
       <%= f.password_field :password %>
   </div>
   <div class="field">
