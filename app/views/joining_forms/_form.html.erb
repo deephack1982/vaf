@@ -77,10 +77,10 @@
   </div>
   <div class="field">
     <%= f.label :software, "Software", :class => :label %>
-    <% for software in JoiningForm::SOFTWARE %>
-        <%= f.check_box :software, :name => "#{f.object_name}[software][]", software %>
-        <%= h software.humanize %><br />
-    <% end %>
+    <%# for software in JoiningForm::SOFTWARE %>
+        <%#= f.check_box :software, :name => "#{f.object_name}[software][]", software %>
+        <%#= h software.humanize %><br />
+    <%# end %>
   </div>
   <div class="field">
     <%= f.number_field :years_experience %>
