@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  age: 1
+  english_proficiency: false
+  available: false
+  software: MyString
+  years_experience: 1
+  interests: MyString
+  notes: MyText
+
+two:
+  age: 1
+  english_proficiency: false
+  available: false
+  software: MyString
+  years_experience: 1
+  interests: MyString
+  notes: MyText

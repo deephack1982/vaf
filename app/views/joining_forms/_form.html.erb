@@ -1,0 +1,98 @@
+<p style="text-align:center;"><%= image_tag("vaf_roundel-mini.png") %></p>
+<div class="panel">
+  <h5>In order to assess your application to the Virtual Airforce we require the following information.</h5>
+</div>
+
+<%= form_for(@pilot_form) do |p| %>
+  <% if @pilot_form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pilot_form.errors.count, "error") %> prohibited this pilot_form from being saved:</h2>
+      <ul>
+        <%= @pilot_form.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="panel">
+<div class="row">
+  <div class="large-6 columns">
+    <div class="field">
+      <%= p.text_field :name, :label => "Full Name" %>
+    </div>
+
+    <div class="field">
+      <%= p.text_field :email, :label => "Email address" %>
+    </div>
+  </div>
+  <div class="large-6 columns">
+    <div class="field">
+      <%= p.text_field :callsign %>
+    </div>
+
+    <div class="field">
+      <%= p.label :country_of_residence %>
+      <%= p.country_select :country %>
+    </div>
+  </div>
+</div>
+</div>
+<div class="warning-panel">
+  <div class="field">
+    <%= p.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= p.password_field :password_confirmation %>
+  </div>
+</div>
+<% end %>
+<%= form_for(@joining_form) do |f| %>
+  <% if @joining_form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@joining_form.errors.count, "error") %> prohibited this joining_form from being saved:</h2>
+
+      <ul>
+      <% @joining_form.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="panel">
+  <div class="field">
+    <%= f.number_field :age %>
+  </div>
+  <div class="panel callout radius">
+    <h5>Are you proficient in spoken and written English?</h5>
+  </div>
+  <div class="field">
+    <%= f.check_box :english_proficiency, :label => "Tick to confirm that you are proficient in English"  %>
+  </div>
+  <div class="panel callout radius">
+    <h5>The VAF carry out events on Thursdays and Saturdays at 7PM UK/London time</h5>
+  </div>
+  <div class="field">
+    <%= f.check_box :available, :label => "Tick to confirm you are available at these times" %>
+  </div>
+  <div class="field">
+    <%= f.label :software, "Software", :class => :label %>
+    <% for software in JoiningForm::SOFTWARE %>
+        <%= f.check_box :software, :name => "#{f.object_name}[software][]", software %>
+        <%= h software.humanize %><br />
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.number_field :years_experience %>
+  </div>
+  <div class="field">
+    <%= f.text_field :interests %>
+  </div>
+  <div class="field">
+    <%= f.text_area :notes %>
+  </div>
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
