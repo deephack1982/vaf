@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   name: MyString
   callsign: MyString
   category: MyString
@@ -8,6 +9,7 @@ one:
   maintenance_hours: 
 
 two:
+  id: 2
   name: MyString
   callsign: MyString
   category: MyString

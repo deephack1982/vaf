@@ -1,6 +1,6 @@
 class ActionReportsController < ApplicationController
   before_action :set_action_report, only: [:show, :edit, :update, :destroy]
-  before_filter :authorise
+  before_filter :authorise, unless: "Rails.env.test?"
 
   # GET /action_reports
   # GET /action_reports.json

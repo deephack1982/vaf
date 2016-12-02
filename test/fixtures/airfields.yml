@@ -1,12 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   name: MyString
   airfield_type: MyString
   ATC_channel: MyString
   ATIS_channel: MyString
 
 two:
+  id: 2
   name: MyString
   airfield_type: MyString
   ATC_channel: MyString

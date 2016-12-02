@@ -4,10 +4,8 @@ one:
   tag: MyString
   name: MyString
   description: MyText
-  patch: 
 
 two:
   tag: MyString
   name: MyString
   description: MyText
-  patch: 

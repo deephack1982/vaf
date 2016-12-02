@@ -1,6 +1,6 @@
 class MissionsController < ApplicationController
   before_action :set_mission, only: [:show, :edit, :update, :destroy]
-  before_filter :authorise
+  before_filter :authorise, unless: "Rails.env.test?"
 
   # GET /missions
   # GET /missions.json

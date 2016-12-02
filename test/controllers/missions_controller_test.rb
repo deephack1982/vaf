@@ -39,11 +39,4 @@ class MissionsControllerTest < ActionController::TestCase
     assert_redirected_to mission_path(assigns(:mission))
   end
 
-  test "should destroy mission" do
-    assert_difference('Mission.count', -1) do
-      delete :destroy, id: @mission
-    end
-
-    assert_redirected_to missions_path
-  end
 end

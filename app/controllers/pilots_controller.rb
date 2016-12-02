@@ -1,6 +1,6 @@
 class PilotsController < ApplicationController
   before_action :set_pilot, only: [:show, :edit, :update, :destroy]
-  before_filter :authorise
+  before_filter :authorise, unless: "Rails.env.test?"
 
   # GET /pilots
   # GET /pilots.json

@@ -38,12 +38,4 @@ class AirframesControllerTest < ActionController::TestCase
     patch :update, id: @airframe, airframe: { airframe_type_id: @airframe.airframe_type_id, condition: @airframe.condition, hours: @airframe.hours, location: @airframe.location, squadron_id: @airframe.squadron_id, tail_number: @airframe.tail_number }
     assert_redirected_to airframe_path(assigns(:airframe))
   end
-
-  test "should destroy airframe" do
-    assert_difference('Airframe.count', -1) do
-      delete :destroy, id: @airframe
-    end
-
-    assert_redirected_to airframes_path
-  end
 end

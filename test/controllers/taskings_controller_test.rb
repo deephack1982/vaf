@@ -38,12 +38,4 @@ class TaskingsControllerTest < ActionController::TestCase
     patch :update, id: @tasking, tasking: { airframe_type_id: @tasking.airframe_type_id, alternate_base_id: @tasking.alternate_base_id, callsign: @tasking.callsign, channel: @tasking.channel, mission_id: @tasking.mission_id, notes: @tasking.notes, number: @tasking.number, primary_base_id: @tasking.primary_base_id, tasking_type: @tasking.tasking_type }
     assert_redirected_to tasking_path(assigns(:tasking))
   end
-
-  test "should destroy tasking" do
-    assert_difference('Tasking.count', -1) do
-      delete :destroy, id: @tasking
-    end
-
-    assert_redirected_to taskings_path
-  end
 end

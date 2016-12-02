@@ -1,17 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  airframe_type_id: 
+  id: 1
+  airframe_type_id: 1
   tail_number: MyString
   location: MyString
-  squadron_id: 
+  squadron_id: 1
   hours: 9.99
   condition: MyString
 
 two:
-  airframe_type_id: 
+  id: 2
+  airframe_type_id: 1
   tail_number: MyString
   location: MyString
-  squadron_id: 
+  squadron_id: 1
   hours: 9.99
   condition: MyString

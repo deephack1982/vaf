@@ -38,12 +38,4 @@ class SquadronsControllerTest < ActionController::TestCase
     patch :update, id: @squadron, squadron: { aircraft: @squadron.aircraft, name: @squadron.name }
     assert_redirected_to squadron_path(assigns(:squadron))
   end
-
-  test "should destroy squadron" do
-    assert_difference('Squadron.count', -1) do
-      delete :destroy, id: @squadron
-    end
-
-    assert_redirected_to squadrons_path
-  end
 end

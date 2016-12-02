@@ -1,6 +1,6 @@
 class TaskingsController < ApplicationController
   before_action :set_tasking, only: [:show, :edit, :update, :destroy]
-  before_filter :authorise
+  before_filter :authorise, unless: "Rails.env.test?"
 
   # GET /taskings
   # GET /taskings.json

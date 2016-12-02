@@ -18,7 +18,7 @@ class QualificationsControllerTest < ActionController::TestCase
 
   test "should create qualification" do
     assert_difference('Qualification.count') do
-      post :create, qualification: { description: @qualification.description, name: @qualification.name, patch: @qualification.patch, tag: @qualification.tag }
+      post :create, qualification: { description: @qualification.description, name: @qualification.name, tag: @qualification.tag }
     end
 
     assert_redirected_to qualification_path(assigns(:qualification))
@@ -35,7 +35,7 @@ class QualificationsControllerTest < ActionController::TestCase
   end
 
   test "should update qualification" do
-    patch :update, id: @qualification, qualification: { description: @qualification.description, name: @qualification.name, patch: @qualification.patch, tag: @qualification.tag }
+    patch :update, id: @qualification, qualification: { description: @qualification.description, name: @qualification.name, tag: @qualification.tag }
     assert_redirected_to qualification_path(assigns(:qualification))
   end
 

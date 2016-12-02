@@ -38,12 +38,4 @@ class AirfieldsControllerTest < ActionController::TestCase
     patch :update, id: @airfield, airfield: { ATC_channel: @airfield.ATC_channel, ATIS_channel: @airfield.ATIS_channel, airfield_type: @airfield.airfield_type, name: @airfield.name }
     assert_redirected_to airfield_path(assigns(:airfield))
   end
-
-  test "should destroy airfield" do
-    assert_difference('Airfield.count', -1) do
-      delete :destroy, id: @airfield
-    end
-
-    assert_redirected_to airfields_path
-  end
 end

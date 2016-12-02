@@ -1,6 +1,6 @@
 class AirfieldsController < ApplicationController
   before_action :set_airfield, only: [:show, :edit, :update, :destroy]
-  before_filter :authorise
+  before_filter :authorise, unless: "Rails.env.test?"
 
   # GET /airfields
   # GET /airfields.json

@@ -18,7 +18,7 @@ class PilotsControllerTest < ActionController::TestCase
 
   test "should create pilot" do
     assert_difference('Pilot.count') do
-      post :create, pilot: { email: @pilot.email, name: @pilot.name, rank: @pilot.rank }
+      post :create, pilot: { email: @pilot.email, name: @pilot.name, rank: @pilot.rank, password: 'testpassword', password_confirmation: 'testpassword' }
     end
 
     assert_redirected_to pilot_path(assigns(:pilot))
@@ -37,13 +37,5 @@ class PilotsControllerTest < ActionController::TestCase
   test "should update pilot" do
     patch :update, id: @pilot, pilot: { email: @pilot.email, name: @pilot.name, rank: @pilot.rank }
     assert_redirected_to pilot_path(assigns(:pilot))
-  end
-
-  test "should destroy pilot" do
-    assert_difference('Pilot.count', -1) do
-      delete :destroy, id: @pilot
-    end
-
-    assert_redirected_to pilots_path
   end
 end
