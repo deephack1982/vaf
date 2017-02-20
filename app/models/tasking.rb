@@ -1,4 +1,4 @@
-class Tasking < ActiveRecord::Base
+class Tasking < ApplicationRecord
   TASK = ["CAP","Training","Intercept","QRA","CAS","Ground Attack"]
 
   belongs_to :mission

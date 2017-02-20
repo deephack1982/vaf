@@ -1,4 +1,4 @@
-class Airframe < ActiveRecord::Base
+class Airframe < ApplicationRecord
   LOCATION = ["Hangar","Maintenance","Storage"]
   CONDITION = ["Airworthy","Unsat","Foxtrot","Scrapped"]
 

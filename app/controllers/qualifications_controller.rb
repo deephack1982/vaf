@@ -1,6 +1,6 @@
 class QualificationsController < ApplicationController
   before_action :set_qualification, only: [:show, :edit, :update, :destroy]
-  before_filter :authorise, unless: "Rails.env.test?"
+  before_action :authorise, unless: "Rails.env.test?"
 
   # GET /qualifications
   # GET /qualifications.json

@@ -1,6 +1,6 @@
 class PilotsController < ApplicationController
   before_action :set_pilot, only: [:show, :edit, :update, :destroy]
-  before_filter :authorise, unless: "Rails.env.test?"
+  before_action :authorise, unless: "Rails.env.test?"
 
   # GET /pilots
   # GET /pilots.json
@@ -16,6 +16,7 @@ class PilotsController < ApplicationController
   # GET /pilots/new
   def new
     @pilot = Pilot.new
+    @pilot.joining_forms.build
   end
 
   # GET /pilots/1/edit
@@ -25,7 +26,7 @@ class PilotsController < ApplicationController
   # POST /pilots
   # POST /pilots.json
   def create
-    @pilot = Pilot.new(pilot_params)
+    @pilot = Pilot.new(pilot_params.merge(rank:  'Recruit', squadron_id: '1'))
 
     respond_to do |format|
       if @pilot.save
@@ -70,6 +71,6 @@ class PilotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pilot_params
-      params.require(:pilot).permit(:name, :email, :rank, :squadron_id, :password, :password_confirmation, :admin, :country, :callsign )
+      params.require(:pilot).permit(:name, :email, :rank, :squadron_id, :password, :password_confirmation, :admin, :country, :callsign, joining_forms_attributes: [:id, :age, :english_proficiency, :available, :years_experience, :interests, :notes, software_ids:[] ] )
     end
 end

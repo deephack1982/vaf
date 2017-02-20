@@ -8,81 +8,9 @@
 </head>
 <body>
 <% if session[:pilot_id] != nil && Pilot.find(session[:pilot_id]).admin %>
-  <div class="off-canvas-wrap" data-offcanvas>
-   <div class="inner-wrap">
-     <nav class="tab-bar">
-       <section class="left-small">
-         <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
-       </section>
-
-        <section class="middle tab-bar-section">
-          <ul class="title-area">
-            <h1 class="title">The Virtual Air Force</h1>
-          </ul>
-        </section>
-        <section class="right tab-bar-section">
-         <ul class="right button-group">
-          <% if session[:pilot_id] != nil %>
-            <li><%= button_to 'Logout', session_path("current"), method: :delete, class: "button small" %></li>
-          <% else %>
-           <li><%= button_to 'Login', new_session_path, method: :get, class: "button small" %></li>
-          <% end %>
-         </ul>
-       </section>
-     </nav>
-     <aside class="left-off-canvas-menu">
-       <ul class="off-canvas-list">
-         <li><label>Administration</label></li>
-         <li><%= link_to 'Pilots', pilots_path %></li>
-         <li><%= link_to 'Qualifications', qualifications_path %></li>
-         <li><%= link_to 'Squadrons', squadrons_path %></li>
-         <li><%= link_to 'Airfields', airfields_path %></li>
-         <li><%= link_to 'Airframe Types', airframe_types_path %></li>
-         <li><%= link_to 'Airframes', airframes_path %></li>
-         <li><%= link_to 'Missions', missions_path %></li>
-         <li><%= link_to 'Action Reports', action_reports_path %></li>
-       </ul>
-     </aside>
-     <section class="main-section">
-       <div class="row">
-         <%= display_flash_messages %>
-         <%= yield %>
-       </div>
-     </section>
-
-      <a class="exit-off-canvas"></a>
-
-    </div>
-  </div>
-  </body>
+  <%= render 'layouts/logged_in' %>
 <% else %>
-  <nav class="top-bar" data-topbar role="navigation">
-    <ul class="title-area">
-      <li class="name">
-        <h1><%= link_to image_tag("vaf_roundel-mini.png", border: 0, size: "32x32"), {action: 'index', controller: 'static'} %></h1>
-      </li>
-    </ul>
-    <section class="top-bar-section">
-      <ul class="left button-group">
-        <li><%= button_to "Contact Us", static_contact_path, class: "button", method: :get %></li>
-        <li><%= button_to "VAF Inventory", static_inventory_path, class: "button", method: :get %></li>
-        <li><%= button_to "Join Us", static_join_path, class: "button", method: :get %></li>
-      </ul>
-
-      <ul class="right">
-        <% if session[:pilot_id] != nil %>
-            <li><%= button_to 'Logout', session_path("current"), method: :delete, class: "button" %></li>
-        <% else %>
-            <li><%= button_to 'Login', new_session_path, method: :get, class: "button" %></li>
-        <% end %>
-      </ul>
-    </section>
-  </nav>
-  <section class="main-section">
-    <div class="row">
-      <%= display_flash_messages %>
-      <%= yield %>
-    </div>
-  </section>
+  <%= render 'layouts/logged_out' %>
 <% end %>
+</body>
 </html>

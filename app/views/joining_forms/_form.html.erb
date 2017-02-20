@@ -3,17 +3,18 @@
   <h5>In order to assess your application to the Virtual Airforce we require the following information.</h5>
 </div>
 
-<%= form_for(@pilot_form) do |p| %>
-  <% if @pilot_form.errors.any? %>
+<%= form_for(@joining_form) do |f| %>
+  <% if @joining_form.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@pilot_form.errors.count, "error") %> prohibited this pilot_form from being saved:</h2>
+      <h2><%= pluralize(@joining_form.errors.count, "error") %> prohibited this joining_form from being saved:</h2>
       <ul>
-        <%= @pilot_form.errors.full_messages.each do |message| %>
+        <%= @joining_form.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
+<%= f.fields_for :pilots do |p| %>
 <div class="panel">
 <div class="row">
   <div class="large-6 columns">

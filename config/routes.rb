@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :softwares
   resources :joining_forms
   get 'session/new'
 

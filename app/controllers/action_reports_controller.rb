@@ -1,6 +1,6 @@
 class ActionReportsController < ApplicationController
   before_action :set_action_report, only: [:show, :edit, :update, :destroy]
-  before_filter :authorise, unless: "Rails.env.test?"
+  before_action :authorise, unless: "Rails.env.test?"
 
   # GET /action_reports
   # GET /action_reports.json
@@ -72,6 +72,6 @@ class ActionReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def action_report_params
-      params.require(:action_report).permit(:pilot_id, :airframe_id, :tasking_id, :hours, :takeoffs, :landings, :outcome, :aa_kills, :ag_kills, :notes, :status, :position)
+      params.require(:action_report).permit(:pilot_id, :airframe_id, :tasking_id, :hours, :takeoffs, :landings, :outcome, :aa_kills, :ag_kills, :notes, :status, :position )
     end
 end

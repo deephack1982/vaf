@@ -1,4 +1,4 @@
-class ActionReport < ActiveRecord::Base
+class ActionReport < ApplicationRecord
   STATUS = ["Assigned","Closed","Cancelled"]
   OUTCOME = ["Success","Failure","Missing","Rescued","Killed"]
 

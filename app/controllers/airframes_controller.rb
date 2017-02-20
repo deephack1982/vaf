@@ -1,6 +1,6 @@
 class AirframesController < ApplicationController
   before_action :set_airframe, only: [:show, :edit, :update, :destroy]
-  before_filter :authorise, unless: "Rails.env.test?"
+  before_action :authorise, unless: "Rails.env.test?"
 
   # GET /airframes
   # GET /airframes.json

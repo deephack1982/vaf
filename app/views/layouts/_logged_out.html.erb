@@ -1,0 +1,19 @@
+<div class="top-bar">
+  <div class="top-bar-left">
+    <%= link_to image_tag("vaf_roundel-mini.png", border: 0, size: "32x32"), {action: 'index', controller: 'static'}, class: "hollow button" %>
+    <%= link_to "Contact Us", static_contact_path, class: "button", method: :get %>
+    <%= link_to "VAF Inventory", static_inventory_path, class: "button", method: :get %>
+    <%= link_to "Join Us", static_join_path, class: "button", method: :get %>
+  </div>
+  <div class="top-bar-right">
+    <% if session[:pilot_id] != nil %>
+        <%= link_to 'Logout', session_path("current"), method: :delete, class: "button" %>
+    <% else %>
+        <%= link_to 'Login', new_session_path, method: :get, class: "button" %>
+    <% end %>
+  </div>
+</div>
+  <div class="row">
+    <%= display_flash_messages %>
+    <%= yield %>
+</div>

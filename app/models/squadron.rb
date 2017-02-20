@@ -1,4 +1,4 @@
-class Squadron < ActiveRecord::Base
+class Squadron < ApplicationRecord
   AIRCRAFT = ["A10C","Mig21bis","L39C","L39ZA","F5E","Mi8","UH1H","SA342L","M2000C","SU25T"]
 
   has_many :pilots

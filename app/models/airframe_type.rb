@@ -1,4 +1,4 @@
-class AirframeType < ActiveRecord::Base
+class AirframeType < ApplicationRecord
   CATEGORY = ["Fixed Wing","Rotary Wing"]
 
   has_many :airframes

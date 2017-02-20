@@ -1,6 +1,6 @@
 class SquadronsController < ApplicationController
   before_action :set_squadron, only: [:show, :edit, :update, :destroy]
-  before_filter :authorise, unless: "Rails.env.test?"
+  before_action :authorise, unless: "Rails.env.test?"
 
   # GET /squadrons
   # GET /squadrons.json

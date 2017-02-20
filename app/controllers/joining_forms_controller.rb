@@ -15,7 +15,7 @@ class JoiningFormsController < ApplicationController
   # GET /joining_forms/new
   def new
     @joining_form = JoiningForm.new
-    @pilot_form = Pilot.new
+    @joining_form.pilot.build
   end
 
   # GET /joining_forms/1/edit
@@ -70,6 +70,6 @@ class JoiningFormsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def joining_form_params
-      params.require(:joining_form).permit(:age, :english_proficiency, :available, :software, :years_experience, :interests, :notes, :pilot_attributes)
+      params.require(:joining_form).permit(:age, :english_proficiency, :available, :software, :years_experience, :interests, :notes, :pilot_attributes, softwares_ids:[])
     end
 end
