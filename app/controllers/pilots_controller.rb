@@ -1,6 +1,6 @@
 class PilotsController < ApplicationController
   before_action :set_pilot, only: [:show, :edit, :update, :destroy]
-  before_action :authorise, unless: "Rails.env.test?"
+  before_action :authorise, unless: "Rails.env.test?", except: [:new, :create]
 
   # GET /pilots
   # GET /pilots.json
@@ -30,11 +30,13 @@ class PilotsController < ApplicationController
 
     respond_to do |format|
       if @pilot.save
-        format.html { redirect_to @pilot, notice: 'Pilot was successfully created.' }
-        format.json { render :show, status: :created, location: @pilot }
+        PilotNotifierMailer.NewRecruit(@pilot).deliver_later
+
+        format.html { redirect_to static_index_path, notice: 'Pilot was successfully created.' }
+        #format.json { render :show, status: :created, location: @pilot }
       else
         format.html { render :new }
-        format.json { render json: @pilot.errors, status: :unprocessable_entity }
+        #format.json { render json: @pilot.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -10,6 +10,8 @@ class Pilot < ApplicationRecord
 
   accepts_nested_attributes_for :joining_forms
 
+  scope :admins, -> { where(admin: 1) }
+
   def fullname
     "#{name} - #{email}"
   end
