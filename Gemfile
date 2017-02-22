@@ -29,8 +29,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 
 # Add Foundation for styling
-gem 'foundation-rails'
-gem 'foundation_rails_helper'
+gem 'foundation-rails', '~> 6.0'
+gem 'foundation_rails_helper', '>= 3.0.0rc2', '< 4.0'
 
 # Add paperclip for attachments
 gem 'paperclip'
