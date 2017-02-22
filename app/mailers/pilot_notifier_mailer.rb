@@ -1,7 +1,7 @@
 class PilotNotifierMailer < ApplicationMailer
   def NewRecruit(pilot)
     @pilot = Pilot.find(pilot)
-    mail(to: @pilot.email, subject: 'Your application to VAF has been received')
+    mail(to: @pilot.email, subject: "Your application to VAF has been received")
   end
 
   def NewRecruitAdmin(pilot)
