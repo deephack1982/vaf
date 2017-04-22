@@ -32,7 +32,7 @@ class PilotsController < ApplicationController
       if @pilot.save
         PilotNotifierMailer.NewRecruit(@pilot).deliver_later
 
-        format.html { redirect_to static_index_path, notice: 'Pilot was successfully created.' }
+        format.html { redirect_to static_index_path, notice: 'Your application has been submitted, please check your email for further information' }
         #format.json { render :show, status: :created, location: @pilot }
       else
         format.html { render :new }
