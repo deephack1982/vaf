@@ -26,7 +26,7 @@ set :deploy_to, "/var/www/html/vaf"
 set :pty, true
 
 # Default value for :linked_files is []
-# append :linked_files, "config/database.yml", "config/secrets.yml"
+append :linked_files, "public/*.xml", "public/*.zip"
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
@@ -36,3 +36,7 @@ set :pty, true
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
+
+namespace :deploy do
+  before :deploy, 'vaf_repo:deploy'
+end
