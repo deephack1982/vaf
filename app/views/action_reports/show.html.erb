@@ -56,11 +56,11 @@
 <ul class="button-group">
   <li><%= button_to 'Back', action_reports_path, method: :get, :class => "button" %></li>
   <li><%= button_to 'Edit', edit_action_report_path(@action_report), method: :get, :class => "button success" %></li>
-  <li><%= button_to 'Close', "#", method: :get, "data-reveal-id" => "closeReport", :class => "button alert" %></li>
+  <li><%= button_to 'Close', "#", method: :get, "data-open" => "closeReport", :class => "button alert" %></li>
 </ul>
 
-<div id="closeReport" class="reveal-modal small" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <h2 id="modalTitle">Close Action Report</h2>
+<div id="closeReport" class="small reveal" data-reveal>
+  <h2>Close Action Report</h2>
   <%= form_for @action_report do |f| %>
       <%= f.hidden_field :status, :value => 'Closed' %>
       <div class="field">
@@ -87,6 +87,8 @@
       <div class="actions">
         <%= f.submit %>
       </div>
-      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+      <button class="close-button" data-close aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
       </div>
   <% end %>
