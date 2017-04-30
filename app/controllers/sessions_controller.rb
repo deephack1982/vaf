@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       if pilot.admin
         redirect_to root_url, notice: "Welcome back sir!"
       else
-        redirect_to root_url, notice: "Welcome back pilot!"
+        redirect_to crew_room_index_url, notice: "Welcome back pilot!"
       end
     else
     flash[:alert] = "Email or password is invalid"

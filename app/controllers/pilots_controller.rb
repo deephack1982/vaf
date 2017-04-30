@@ -26,7 +26,7 @@ class PilotsController < ApplicationController
   # POST /pilots
   # POST /pilots.json
   def create
-    @pilot = Pilot.new(pilot_params.merge(rank:  'Recruit', squadron_id: '1'))
+    @pilot = Pilot.new(pilot_params.merge(rank:  'Recruit', squadron_id: '1', admin: '0'))
 
     respond_to do |format|
       if @pilot.save

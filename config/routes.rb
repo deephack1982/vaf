@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'crew_room/index'
+
+  get 'crew_room/stores'
+
+  get 'crew_room/sierra_hotel'
+
+  get 'crew_room/ready_room'
+
+  get 'crew_room/service_history'
+
   resources :softwares
   resources :joining_forms
   get 'session/new'

@@ -1,0 +1,56 @@
+<h1>Sierra Hotel</h1>
+<p>Welcome to Sierra Hotel, see below the gods who walk among us</p>
+
+<h2>Pilots by flight hours</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Callsign</th>
+      <th>Hours</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for pilot in @pilots_by_hours %>
+      <tr>
+        <td><%= pilot.callsign %></td>
+        <td><%= pilot.hours %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Pilots by AG kills</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Callsign</th>
+      <th>AG kills</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for pilot in @pilots_by_ag %>
+      <tr>
+        <td><%= pilot.callsign %></td>
+        <td><%= pilot.ag_kills %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Pilots by AA kills</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Callsign</th>
+      <th>AA kills</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for pilot in @pilots_by_aa %>
+      <tr>
+        <td><%= pilot.callsign %></td>
+        <td><%= pilot.aa_kills %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

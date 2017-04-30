@@ -12,6 +12,8 @@ class Pilot < ApplicationRecord
 
   scope :admins, -> { where(admin: 1) }
 
+  scope :non_admin, -> { where(admin: 0) }
+
   def fullname
     "#{name} - #{email}"
   end

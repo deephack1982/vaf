@@ -8,7 +8,9 @@
 </head>
 <body>
 <% if session[:pilot_id] != nil && Pilot.find(session[:pilot_id]).admin %>
-  <%= render 'layouts/logged_in' %>
+  <%= render 'layouts/admin_logged_in' %>
+<% elsif session[:pilot_id] != nil && Pilot.find(session[:pilot_id]).admin == false %>
+  <%= render 'layouts/pilot_logged_in' %>
 <% else %>
   <%= render 'layouts/logged_out' %>
 <% end %>
