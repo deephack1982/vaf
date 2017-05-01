@@ -19,7 +19,7 @@ class Pilot < ApplicationRecord
   end
 
   def hours
-    self.action_reports.count(:hours)
+    self.action_reports.sum(:hours)
   end
 
   def missions
@@ -27,18 +27,18 @@ class Pilot < ApplicationRecord
   end
 
   def takeoffs
-    self.action_reports.count(:takeoffs)
+    self.action_reports.sum(:takeoffs)
   end
 
   def landings
-    self.action_reports.count(:landings)
+    self.action_reports.sum(:landings)
   end
 
   def aa_kills
-    self.action_reports.count(:aa_kills)
+    self.action_reports.sum(:aa_kills)
   end
 
   def ag_kills
-    self.action_reports.count(:ag_kills)
+    self.action_reports.sum(:ag_kills)
   end
 end
