@@ -3,5 +3,3 @@
 Virtual Airforce website
 
 This website is designed to provide a central hub for pilots, allowing them to sign up for missions and upload their mission results.
-
-{<img src="https://codeship.com/projects/42929fd0-9b15-0134-6cae-522ce3bf1491/status?branch=master" alt="Status?branch=master" />}[https://codeship.com/projects/188274]

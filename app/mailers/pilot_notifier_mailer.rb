@@ -10,4 +10,12 @@ class PilotNotifierMailer < ApplicationMailer
       mail(to: a.email, subject: 'New recruit')
     end
   end
+
+  def ActionReportClosed(actionReport)
+    @pilot = Pilot.find(actionReport.pilot)
+    @tasking = Tasking.find(actionReport.tasking)
+    @mission = Mission.find(actionReport.tasking.mission)
+    @action_report = ActionReport.find(actionReport)
+    mail(to: @pilot.email, subject: "Action report for mission #{@mission.title} has been closed")
+  end
 end

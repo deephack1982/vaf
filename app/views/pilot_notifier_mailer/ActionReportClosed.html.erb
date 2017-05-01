@@ -1,0 +1,5 @@
+<h1>Your action report for mission <%= @mission.title %> is closed</h1>
+<p><%= @action_report.hours %> have been logged in the mission <%= @mission.title %> flown on <%= @mission.date %>.</p>
+<p>This makes your total logged hours flown with VAF <%= @pilot.hours %></p>
+<p>The outcome of your mission was <%= @action_report.outcome %> with the following notes being added.</p>
+<p><%= @action_report.notes %></p>
