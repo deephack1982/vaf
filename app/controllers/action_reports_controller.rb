@@ -47,6 +47,9 @@ class ActionReportsController < ApplicationController
       if @action_report.update(action_report_params)
         format.html { redirect_to @action_report, notice: 'Action report was successfully updated.' }
         format.json { render :show, status: :ok, location: @action_report }
+        if @action_report.status == 'Closed'
+          PilotNotifierMailer.ActionReportClosed(@action_report).deliver_later
+        end
       else
         format.html { render :edit }
         format.json { render json: @action_report.errors, status: :unprocessable_entity }
