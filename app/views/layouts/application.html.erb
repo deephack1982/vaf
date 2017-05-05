@@ -15,4 +15,9 @@
   <%= render 'layouts/logged_out' %>
 <% end %>
 </body>
+<% if Rails.env.development? && session[:pilot_id] != nil %>
+  <p><strong>Development mode</strong></p>
+  <p>You are logged in as <%= Pilot.find(session[:pilot_id]).name %></p>
+  <p>Admin login <%= Pilot.find(session[:pilot_id]).admin %></p>
+<% end %>
 </html>
