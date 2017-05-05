@@ -29,7 +29,7 @@ set :pty, true
 append :linked_files, "public/VAF_Base.xml", "public/VAF_Pack.zip", "public/RSBNbyHawk.zip", "public/VPC-Airfield_Equipment_0.9.0.zip", "public/476th_-_Range_Objects_-_21JAN17.zip"
 
 # Default value for linked_dirs is []
-# append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+append :linked_dirs, "public/system"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
