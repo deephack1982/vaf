@@ -9,9 +9,9 @@ class CrewRoomController < ApplicationController
   end
 
   def sierra_hotel
-    @pilots_by_hours = Pilot.all.sort_by(&:hours)
-    @pilots_by_ag = Pilot.all.sort_by(&:ag_kills)
-    @pilots_by_aa = Pilot.all.sort_by(&:aa_kills)
+    @pilots_by_hours = Pilot.all.sort_by(&:hours).reverse!
+    @pilots_by_ag = Pilot.all.sort_by(&:ag_kills).reverse!
+    @pilots_by_aa = Pilot.all.sort_by(&:aa_kills).reverse!
   end
 
   def ready_room
