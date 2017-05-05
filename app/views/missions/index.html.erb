@@ -17,7 +17,7 @@
       <tr>
         <td><%= mission.title %></td>
         <td><%= mission.date %></td>
-        <td><%= mission.start_time %></td>
+        <td><%= mission.start_time.strftime("%H:%M") %></td>
         <td><%= mission.body %></td>
         <td><%= mission.channel %></td>
         <td><%= button_to 'Show', mission, method: :get, :class => "button tiny" %></td>
