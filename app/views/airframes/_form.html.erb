@@ -24,7 +24,7 @@
     <%= f.collection_select :squadron_id, Squadron.all, :id, :name, {:include_blank => "Select..."} %>
   </div>
   <div class="field">
-    <%= f.number_field :hours, :value => '0' %>
+    <%= f.number_field :hours, :value => @airframe.hours %>
   </div>
   <div class="field">
     <%= f.select :condition, Airframe::CONDITION %>
