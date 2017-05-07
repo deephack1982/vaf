@@ -1,5 +1,5 @@
 class Tasking < ApplicationRecord
-  TASK = ["CAP","Training","Intercept","QRA","CAS","Ground Attack"]
+  TASK = ["CAP","Training","Intercept","QRA","CAS","Ground Attack","Escort","Ferry","SAR","CSAR","Transport"]
 
   belongs_to :mission
   belongs_to :airframe_type

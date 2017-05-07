@@ -78,7 +78,8 @@
   </div>
 </div>
 
-<ul class="button-group">
-  <li><%= button_to 'Back', pilots_path, method: :get, :class => "button" %></li>
-  <li><%= button_to 'Edit', edit_pilot_path(@pilot), method: :get, :class => "button success" %></li>
-</ul>
+<div class="button-group">
+  <%= link_to 'Back', pilots_path, method: :get, :class => "button" %>
+  <%= link_to 'Edit', edit_pilot_path(@pilot), method: :get, :class => "button success" %>
+  <%= link_to 'Admin', admin_toggle_pilot_path(@pilot), method: :put, :class => "button" %>
+</div>

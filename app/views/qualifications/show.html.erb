@@ -18,7 +18,7 @@
   <%= image_tag @qualification.patch.url(:small) %>
 </p>
 
-<ul class="button-group">
-  <li><%= button_to 'Back', qualifications_path, method: :get, :class => "button" %></li>
-  <li><%= button_to 'Edit', edit_qualification_path(@qualification), method: :get, :class => "button success" %></li>
-</ul>
+<div class="button-group">
+  <%= link_to 'Back', qualifications_path, method: :get, :class => "button" %>
+  <%= link_to 'Edit', edit_qualification_path(@qualification), method: :get, :class => "button success" %>
+</div>

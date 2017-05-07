@@ -1,5 +1,5 @@
 class PilotsController < ApplicationController
-  before_action :set_pilot, only: [:show, :edit, :update, :destroy]
+  before_action :set_pilot, only: [:show, :edit, :update, :destroy, :admin_toggle]
   before_action :authorise, unless: "Rails.env.test?", except: [:new, :create]
 
   # GET /pilots
@@ -61,6 +61,14 @@ class PilotsController < ApplicationController
     @pilot.destroy
     respond_to do |format|
       format.html { redirect_to pilots_url, notice: 'Pilot was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def admin_toggle
+    @pilot.toggle! :admin
+    respond_to do |format|
+      format.html { redirect_to pilot_url}
       format.json { head :no_content }
     end
   end

@@ -53,11 +53,11 @@
   <%= @action_report.status %>
 </p>
 
-<ul class="button-group">
-  <li><%= button_to 'Back', action_reports_path, method: :get, :class => "button" %></li>
-  <li><%= button_to 'Edit', edit_action_report_path(@action_report), method: :get, :class => "button success" %></li>
-  <li><%= button_to 'Close', "#", method: :get, "data-open" => "closeReport", :class => "button alert" %></li>
-</ul>
+<div class="button-group">
+  <%= link_to 'Back', action_reports_path, method: :get, :class => "button" %>
+  <%= link_to 'Edit', edit_action_report_path(@action_report), method: :get, :class => "button success" %>
+  <%= link_to 'Close', "#", method: :get, "data-open" => "closeReport", :class => "button alert" %>
+</div>
 
 <div id="closeReport" class="small reveal" data-reveal>
   <h2>Close Action Report</h2>

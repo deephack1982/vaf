@@ -6,7 +6,8 @@
       <th>Name</th>
       <th>Email</th>
       <th>Rank</th>
-	  <th>Squadron</th>
+      <th>Admin</th>
+	    <th>Squadron</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -17,6 +18,7 @@
         <td><%= pilot.name %></td>
         <td><%= pilot.email %></td>
         <td><%= pilot.rank %></td>
+        <td><%= pilot.admin ? 'Yes' : 'No' %></td>
 		<td><%= pilot.squadron.name rescue "None" %></td>
         <td><%= button_to 'Show', pilot, method: :get, :class => "button tiny" %></td>
         <td><%= button_to 'Edit', edit_pilot_path(pilot), method: :get, :class => "button tiny success" %></td>
