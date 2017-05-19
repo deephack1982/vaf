@@ -74,4 +74,27 @@
   </div>
 </div>
 <h1>Mission Log</h1>
-<p>Coming soon!</p>
+<div class="callout">
+  <table>
+    <thead>
+      <tr>
+        <th>Mission</th>
+        <th>Tasking</th>
+        <th>Hours</th>
+        <th>Outcome</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @last_five_reports.each do |report| %>
+      <tr>
+        <td><%= report.tasking.mission.title %></td>
+        <td><%= "#{report.tasking.callsign} - #{report.position}" %></td>
+        <td><%= report.hours %></td>
+        <td><%= report.outcome %></td>
+        <td><%= link_to 'show', report %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

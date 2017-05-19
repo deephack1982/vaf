@@ -1,58 +1,65 @@
-<p>
-  <strong>Pilot:</strong>
-  <%= @action_report.pilot.fullname %>
-</p>
+<div class="callout">
+  <h1><%= "Action Report for #{@action_report.tasking.mission.title} on #{@action_report.tasking.mission.date}" %></h1>
+  <p>
+    <strong>Pilot:</strong>
+    <%= @action_report.pilot.fullname %>
+  </p>
 
-<p>
-  <strong>Airframe:</strong>
-  <%= @action_report.airframe.fullname %>
-</p>
+  <p>
+    <strong>Airframe:</strong>
+    <%= @action_report.airframe.fullname %>
+  </p>
 
-<p>
-  <strong>Tasking:</strong>
-  <%= "#{@action_report.tasking.callsign}#{@action_report.position}" %>
-</p>
+  <p>
+    <strong>Tasking:</strong>
+    <%= "#{@action_report.tasking.callsign}#{@action_report.position}" %>
+  </p>
 
-<p>
-  <strong>Hours:</strong>
-  <%= @action_report.hours %>
-</p>
+  <p>
+    <strong>Hours:</strong>
+    <%= @action_report.hours %>
+  </p>
 
-<p>
-  <strong>Takeoffs:</strong>
-  <%= @action_report.takeoffs %>
-</p>
+  <p>
+    <strong>Takeoffs:</strong>
+    <%= @action_report.takeoffs %>
+  </p>
 
-<p>
-  <strong>Landings:</strong>
-  <%= @action_report.landings %>
-</p>
+  <p>
+    <strong>Landings:</strong>
+    <%= @action_report.landings %>
+  </p>
 
-<p>
-  <strong>Outcome:</strong>
-  <%= @action_report.outcome %>
-</p>
+  <p>
+    <strong>Outcome:</strong>
+    <%= @action_report.outcome %>
+  </p>
 
-<p>
-  <strong>Aa kills:</strong>
-  <%= @action_report.aa_kills %>
-</p>
+  <p>
+    <strong>Aa kills:</strong>
+    <%= @action_report.aa_kills %>
+  </p>
 
-<p>
-  <strong>Ag kills:</strong>
-  <%= @action_report.ag_kills %>
-</p>
+  <p>
+    <strong>Ag kills:</strong>
+    <%= @action_report.ag_kills %>
+  </p>
 
-<p>
-  <strong>Notes:</strong>
-  <%= @action_report.notes %>
-</p>
+  <p>
+    <strong>Notes:</strong>
+    <%= @action_report.notes %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @action_report.status %>
-</p>
-
+  <p>
+    <strong>Status:</strong>
+    <%= @action_report.status %>
+  </p>
+</div>
+<% unless Pilot.find(session[:pilot_id]).admin %>
+    <div class="button-group">
+      <%= link_to 'Back', :back, :class => "button" %>
+    </div>
+<% else %>
 <div class="button-group">
   <%= link_to 'Back', action_reports_path, method: :get, :class => "button" %>
   <%= link_to 'Edit', edit_action_report_path(@action_report), method: :get, :class => "button success" %>
@@ -92,3 +99,4 @@
       </button>
       </div>
   <% end %>
+<% end %>
