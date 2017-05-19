@@ -22,7 +22,7 @@
   </div>
   <% end %>
   <div class="field">
-    <%= f.select :position, options_for_select(1..4) %>
+    <%= f.select :position, options_for_select(1..8) %>
   </div>
   <div class="field">
     <%= f.collection_select :airframe_id, Airframe.all, :id, :fullname, {:include_blank => "Select..."} %>
