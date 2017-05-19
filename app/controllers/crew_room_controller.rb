@@ -18,6 +18,7 @@ class CrewRoomController < ApplicationController
   end
 
   def service_history
+    @last_five_reports = ActionReport.where(pilot: @pilot).last(5).reverse
   end
 
   private
