@@ -12,7 +12,7 @@
   <tbody>
     <% for pilot in @pilots_by_hours %>
       <tr>
-        <td><%= pilot.callsign %></td>
+        <td><%= image_tag pilot.profile_pic.url(:small) %> <%= pilot.callsign %></td>
         <td><%= pilot.hours %></td>
       </tr>
     <% end %>
@@ -30,7 +30,7 @@
   <tbody>
     <% for pilot in @pilots_by_ag %>
       <tr>
-        <td><%= pilot.callsign %></td>
+        <td><%= image_tag pilot.profile_pic.url(:small) %> <%= pilot.callsign %></td>
         <td><%= pilot.ag_kills %></td>
       </tr>
     <% end %>
@@ -48,7 +48,7 @@
   <tbody>
     <% for pilot in @pilots_by_aa %>
       <tr>
-        <td><%= pilot.callsign %></td>
+        <td><%= image_tag pilot.profile_pic.url(:small) %> <%= pilot.callsign %></td>
         <td><%= pilot.aa_kills %></td>
       </tr>
     <% end %>

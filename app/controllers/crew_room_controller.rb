@@ -15,6 +15,8 @@ class CrewRoomController < ApplicationController
   end
 
   def ready_room
+    @todays_missions = Mission.find_by_date(Date.today)
+    @upcoming_missions = Mission.find_by "date > ?", Date.today
   end
 
   def service_history

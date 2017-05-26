@@ -35,6 +35,9 @@
           </div>
         </div>
       </div>
+      <div class="callout">
+        <%= f.file_field :profile_pic %>
+      </div>
       <div class="callout warning">
         <div class="field">
           <%= f.password_field :password %>
@@ -55,7 +58,7 @@
           <%= j.check_box :english_proficiency, :label => "Tick to confirm that you are proficient in English"  %>
         </div>
         <div class="callout secondary radius">
-          <h5>The VAF carry out events on Thursdays and Saturdays at 7PM UK/London time</h5>
+          <h5>The VAF carry out events on Wednesdays and Saturdays at 7PM UK/London time</h5>
         </div>
         <div class="field">
           <%= j.check_box :available, :label => "Tick to confirm you are available at these times" %>

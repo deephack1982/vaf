@@ -3,34 +3,41 @@
       This pilot is an admin
     </div>
 <% end %>
-<p>
-  <strong>Name:</strong>
-  <%= @pilot.name %>
-</p>
+<div class="row">
+  <div class="large-6 columns">
+    <p>
+      <strong>Name:</strong>
+      <%= @pilot.name %>
+    </p>
 
-<p>
-  <strong>Callsign:</strong>
-  <%= @pilot.callsign %>
-</p>
+    <p>
+      <strong>Callsign:</strong>
+      <%= @pilot.callsign %>
+    </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @pilot.email %>
-</p>
+    <p>
+      <strong>Email:</strong>
+      <%= @pilot.email %>
+    </p>
 
-<p>
-  <strong>Country:</strong>
-  <%= image_tag "country-4x3/#{@pilot.country.downcase}.svg", width: 32, alt: @pilot.country %>
-</p>
-<p>
-  <strong>Rank:</strong>
-  <%= @pilot.rank %>
-</p>
+    <p>
+      <strong>Country:</strong>
+      <%= image_tag "country-4x3/#{@pilot.country.downcase}.svg", width: 32, alt: @pilot.country %>
+    </p>
+    <p>
+      <strong>Rank:</strong>
+      <%= @pilot.rank %>
+    </p>
 
-<p>
-  <strong>Squadron:</strong>
-  <%= @pilot.squadron.name rescue "None" %>
-</p>
+    <p>
+      <strong>Squadron:</strong>
+      <%= @pilot.squadron.name rescue "None" %>
+    </p>
+  </div>
+  <div class="large-6 columns">
+    <%= image_tag @pilot.profile_pic.url(:normal) %>
+  </div>
+</div>
 
 <h1>Pilots Stats</h1>
 <div class="panel">
