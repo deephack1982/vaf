@@ -1,3 +1,23 @@
 <h1>Ready Room</h1>
-<h4>Coming soon!</h4>
-<p>Soon you will have the ability to log in and view mission briefings!</p>
+<p>Welcome to the ready room pilot, today's missions and any upcoming missions are listed below. Be sure to check back regularly.</p>
+<h2>Today's mission board</h2>
+<div class="callout">
+  <% @todays_missions.try(:each) do |mission| %>
+    <h3><%= mission.title %></h3>
+    <p><%= mission.body %></p>
+  <% end %>
+  <% if @todays_missions.nil? %>
+    <p class="text-center">No missions today</p>
+  <% end %>
+</div>
+<h2>Upcoming missions board</h2>
+<div class="callout">
+  <% @upcoming_missions.try(:each) do |mission| %>
+    <h3><%= mission.title %></h3>
+    <p><%= mission.date %></p>
+    <p><%= mission.body %></p>
+  <% end %>
+  <% if @upcoming_missions.nil? %>
+    <p class="text-center">No missions planned</p>
+  <% end %>
+</div>

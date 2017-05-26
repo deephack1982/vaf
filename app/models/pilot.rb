@@ -8,6 +8,9 @@ class Pilot < ApplicationRecord
   has_many :joining_forms, autosave: true, :inverse_of => :pilot, dependent: :destroy
   has_and_belongs_to_many :qualifications
 
+  has_attached_file :profile_pic, styles: { small: "150x50", normal: "250x250" }, default_url: ActionController::Base.helpers.asset_path('default_pilot.jpg')
+  validates_attachment_content_type :profile_pic, content_type: /\Aimage\/.*\Z/
+
   accepts_nested_attributes_for :joining_forms
 
   scope :admins, -> { where(admin: 1) }

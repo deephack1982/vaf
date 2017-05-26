@@ -81,6 +81,6 @@ class PilotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pilot_params
-      params.require(:pilot).permit(:name, :email, :rank, :squadron_id, :password, :password_confirmation, :admin, :country, :callsign, joining_forms_attributes: [:id, :age, :english_proficiency, :available, :years_experience, :interests, :notes, software_ids:[] ] )
+      params.require(:pilot).permit(:name, :email, :rank, :squadron_id, :password, :password_confirmation, :admin, :country, :callsign, :profile_pic, joining_forms_attributes: [:id, :age, :english_proficiency, :available, :years_experience, :interests, :notes, software_ids:[] ] )
     end
 end

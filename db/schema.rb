@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170219161617) do
+ActiveRecord::Schema.define(version: 20170526145830) do
 
   create_table "action_reports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.integer  "pilot_id"
@@ -101,13 +101,17 @@ ActiveRecord::Schema.define(version: 20170219161617) do
     t.string   "name"
     t.string   "email"
     t.string   "rank"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.integer  "squadron_id"
     t.string   "password_digest"
     t.boolean  "admin"
     t.string   "callsign"
     t.string   "country"
+    t.string   "profile_pic_file_name"
+    t.string   "profile_pic_content_type"
+    t.integer  "profile_pic_file_size"
+    t.datetime "profile_pic_updated_at"
     t.index ["squadron_id"], name: "index_pilots_on_squadron_id", using: :btree
   end
 
