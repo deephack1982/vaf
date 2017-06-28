@@ -5,6 +5,9 @@
   <% @todays_missions.try do |mission| %>
     <h3><%= mission.title %></h3>
     <p><%= mission.body %></p>
+    <% mission.taskings.try(:each) do |tasking| %>
+      <p><%= "#{tasking.callsign} - #{tasking.number} ship of #{tasking.airframe_type.name}" %></p>
+    <% end %>
   <% end %>
   <% if @todays_missions.nil? %>
     <p class="text-center">No missions today</p>
