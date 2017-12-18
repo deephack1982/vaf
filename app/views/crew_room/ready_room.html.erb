@@ -19,6 +19,9 @@
     <h3><%= mission.title %></h3>
     <p><%= mission.date %></p>
     <p><%= mission.body %></p>
+    <% mission.taskings.try(:each) do |tasking| %>
+      <p><%= "#{tasking.callsign} - #{tasking.number} ship of #{tasking.airframe_type.name}" %></p>
+    <% end %>
   <% end %>
   <% if @upcoming_missions.nil? %>
     <p class="text-center">No missions planned</p>
