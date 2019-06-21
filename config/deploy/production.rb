@@ -7,7 +7,7 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-server "www.virtualairforce.com", user: "ubuntu", roles: [:app, :web, :db]
+server "www.virtualairforce.com", user: "ubuntu", roles: [:app, :web, :db], ssh_options: { forward_agent: true }
 
 
 
