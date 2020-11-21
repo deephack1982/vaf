@@ -26,7 +26,7 @@ set :deploy_to, "/var/www/html/vaf"
 set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, "public/VAF_Base.xml", "public/3_Squadron_AV-8B.zip", "public/22_Squadron.zip", "public/416_Squadron_VAF.zip", "public/476_Range_Targets_16JUN19.zip", "public/476th - Range Objects - 21JAN17.zip", "public/476th_-_Range_Objects_-_21JAN17.zip", "public/870_Squadron_ZA.zip", "public/Civil_Aircraft_Mod_V0.80.zip", "public/ECHO19_DCSFA18.zip", "public/L-39C_870_Squadron.zip", "public/UK_Yak-52.zip", "public/VPC-Airfield_Equipment_0.9.4_beta.zip"
+append :linked_files, "public/VAF_Base.xml", "public/3_Squadron_AV-8B.zip", "public/22_Squadron.zip", "public/416_Squadron_VAF.zip", "public/476_Range_Targets_16JUN19.zip", "public/870_Squadron_ZA.zip", "public/Civil_Aircraft_Mod_V0.80.zip", "public/ECHO19_DCSFA18.zip", "public/L-39C_870_Squadron.zip", "public/UK_Yak-52.zip", "public/VPC-Airfield_Equipment_0.9.4_beta.zip"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "public/system"
